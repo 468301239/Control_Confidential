@@ -1,0 +1,47 @@
+[System]
+Name='fuzzf'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='mom'
+
+[Input1]
+Name='e'
+Range=[-0.03 0.03]
+NumMFs=3
+MF1='N':'zmf',[-0.03 0]
+MF2='Z':'trimf',[-0.02 0 0.02]
+MF3='P':'smf',[0 0.03]
+
+[Input2]
+Name='ec'
+Range=[-0.03 0.03]
+NumMFs=3
+MF1='N':'zmf',[-0.03 0]
+MF2='Z':'trimf',[-0.02 0 0.02]
+MF3='P':'smf',[0 0.03]
+
+[Output1]
+Name='u'
+Range=[-300 300]
+NumMFs=3
+MF1='N':'zmf',[-300 0]
+MF2='Z':'trimf',[-200 0 200]
+MF3='P':'smf',[0 300]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 2 (1) : 1
+2 1, 2 (1) : 1
+2 2, 2 (1) : 1
+2 3, 2 (1) : 1
+3 1, 2 (1) : 1
+3 2, 3 (1) : 1
+3 3, 3 (1) : 1
